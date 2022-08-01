@@ -53,3 +53,19 @@ grid run --instance_type t2.medium --localdir -- grid-hpo.sh --script scripts/hy
 ```
 grid run --dockerfile Dockerfile --instance_type g4dn.xlarge --localdir -- grid-hpo.sh --script scripts/train_hydra.sh --config-path "['configs_mirror-mouse', 'configs']" --config-name "['config','config_mirror-mouse']" --training.rng_seed_data_pt "[1,2]"
 ```
+
+
+# run on grid - scara emg 
+grid run --name run-hydra-test --dockerfile Dockerfile \
+--localdir \
+--datastore_name emg-data-02 -- \ 
+scripts/grid-hpo.sh \
+--script scripts/grid-run-test-1.sh \
+--config-path configs_scara-emg \
+--config-name configs_scara-emg \
+--training.train_frames "[75,1]" \
+--model.do_context "[False]" \
+--model.losses_to_use "["pca_singleview"]" \
+--training.rng_seed_data_pt "[0,1,2]" \
+--losses.pca_singleview.log_weight "[5.0]"
+```
