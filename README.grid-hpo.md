@@ -56,11 +56,11 @@ grid run --dockerfile Dockerfile --instance_type g4dn.xlarge --localdir -- grid-
 
 
 # run on grid - scara emg 
-grid run --name run-hydra-test --dockerfile Dockerfile \
+grid run --name scara-emg-test --dockerfile Dockerfile \
 --localdir \
---datastore_name emg-data-02 -- \ 
+--datastore_name emg-data-03 -- \ 
 scripts/grid-hpo.sh \
---script scripts/grid-run-test-1.sh \
+--script scripts/grid-run-test-emg.sh \
 --config-path configs_scara-emg \
 --config-name configs_scara-emg \
 --training.train_frames "[75,1]" \

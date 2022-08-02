@@ -8,9 +8,9 @@ data:
     width: 384
     height: 256
   # ABSOLUTE path to data directory
-  data_dir: "/datastores/emg-data-03"
+  data_dir: "/datastores/emg-data-04"
   # ABSOLUTE path to unlabeled videos' directory
-  video_dir: "/datastores/emg-data-03/videos"
+  video_dir: "/datastores/emg-data-04/videos"
   # location of labels; for example script, this should be relative to `data_dir`
   csv_file: "single_camera_emg_model_003_ordered.csv"
   # header rows to strip in label csv file
@@ -106,7 +106,7 @@ model:
   # "mse" | "kl" | "js"
   heatmap_loss_type: "mse"
   # tt expt name
-  model_name: "emg-test"
+  model_name: "scara-emg-no-ctx"
   # do context (5 frames)
   do_context: false
 
@@ -177,7 +177,7 @@ eval:
   # predict?
   predict_vids_after_training: true
   # save .mp4?
-  save_vids_after_training: true 
+  save_vids_after_training: false 
   fiftyone:
     # will be the name of the dataset (Mongo DB) created by FiftyOne. for video dataset, we will append dataset_name + "_video"
     dataset_name: "mirror-mouse"
@@ -195,7 +195,7 @@ eval:
     dataset_to_create: "images"
   # str with an absolute path to a directory containing videos for prediction.
   # (it's not absolute just for the toy example)
-  test_videos_directory: "/datastores/hillman-fly/videos"
+  test_videos_directory: "/datastores/emg-data-04/videos"
   # str with an absolute path to directory in which you want to save .csv with predictions
   saved_vid_preds_dir: "/home/jovyan"
   # create labeled video from each video in test_videos_directory
