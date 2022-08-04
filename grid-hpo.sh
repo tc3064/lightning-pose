@@ -1,3 +1,4 @@
+set -o pipefail
 #!/usr/bin/env bash
 
 # save --config-path or --config-dir or --config-name
@@ -50,5 +51,4 @@ echo "Running"
 cat ./test.$$.sh
 # execute the modified script
 ./test.$$.sh | tee test.$$.out
-
 
