@@ -1,3 +1,4 @@
+set -o pipefail
 FROM pytorch/pytorch:1.11.0-cuda11.3-cudnn8-runtime
 
 # these two lines are mandatory
