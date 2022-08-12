@@ -8,11 +8,11 @@ data:
     width: 384
     height: 256
   # ABSOLUTE path to data directory
-  data_dir: "/datastores/emg-data-60fps"
+  data_dir: "/datastores/emg-data-30fps-1an-ctx"
   # ABSOLUTE path to unlabeled videos' directory
-  video_dir: "/datastores/emg-data-60fps/videos"
+  video_dir: "/datastores/emg-data-30fps-1an-ctx/videos"
   # location of labels; for example script, this should be relative to `data_dir`
-  csv_file: "single_camera_emg_model_60fps.csv"
+  csv_file: "single_camera_emg_model_30fps-1an-ctx.csv"
   # header rows to strip in label csv file
   header_rows: [0, 1, 2]
   # downsample heatmaps - 2 | 3
@@ -69,7 +69,7 @@ training:
   # select gpu for training
   gpu_id: 0
   # rng seed for labeled batches
-  rng_seed_data_pt: 0  #scara: 42
+  rng_seed_data_pt: 2  #scara: 42
   # rng seed for weight initialization
   rng_seed_model_pt: 0 #scara: 44
   # how many batches to take before terminating an epoch
@@ -106,9 +106,9 @@ model:
   # "mse" | "kl" | "js"
   heatmap_loss_type: "mse"
   # tt expt name
-  model_name: "scara-emg-no-ctx"
+  model_name: "scara-emg-30fps-1an-ctx"
   # do context (5 frames)
-  do_context: false
+  do_context: true
 
 dali:
   general:
@@ -177,7 +177,7 @@ eval:
   # predict?
   predict_vids_after_training: true
   # save .mp4?
-  save_vids_after_training: false 
+  save_vids_after_training: true 
   fiftyone:
     # will be the name of the dataset (Mongo DB) created by FiftyOne. for video dataset, we will append dataset_name + "_video"
     dataset_name: "mirror-mouse"
@@ -195,7 +195,7 @@ eval:
     dataset_to_create: "images"
   # str with an absolute path to a directory containing videos for prediction.
   # (it's not absolute just for the toy example)
-  test_videos_directory: "/datastores/emg-data-60fps/videos"
+  test_videos_directory: "/datastores/emg-data-30fps-1an-ctx/videos"
   # str with an absolute path to directory in which you want to save .csv with predictions
   saved_vid_preds_dir: "/home/jovyan"
   # create labeled video from each video in test_videos_directory

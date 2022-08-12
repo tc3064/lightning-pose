@@ -8,11 +8,11 @@ data:
     width: 384
     height: 256
   # ABSOLUTE path to data directory
-  data_dir: "/datastores/emg-data-05-30fps-2an-ctx"
+  data_dir: "/datastores/emg-data-30fps-2an-ctx"
   # ABSOLUTE path to unlabeled videos' directory
-  video_dir: "/datastores/emg-data-05-30fps-2an-ctx/videos"
+  video_dir: "/datastores/emg-data-30fps-2an-ctx/videos"
   # location of labels; for example script, this should be relative to `data_dir`
-  csv_file: "single_camera_emg_model_005_ctx.csv"
+  csv_file: "single_camera_emg_model_ctx.csv"
   # header rows to strip in label csv file
   header_rows: [0, 1, 2]
   # downsample heatmaps - 2 | 3
@@ -195,7 +195,7 @@ eval:
     dataset_to_create: "images"
   # str with an absolute path to a directory containing videos for prediction.
   # (it's not absolute just for the toy example)
-  test_videos_directory: "/datastores/emg-data-05-30fps-2an-ctx/videos"
+  test_videos_directory: "/datastores/emg-data-30fps-2an-ctx/videos"
   # str with an absolute path to directory in which you want to save .csv with predictions
   saved_vid_preds_dir: "/home/jovyan"
   # create labeled video from each video in test_videos_directory
